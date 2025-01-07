@@ -1,0 +1,18 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+}
+
+p.hello {
+    font-size: 30px;
+    color: orange;
+}
+
+p.illu {
+    font-size: 30px;
+    color: rgb(250, 90, 210);
+}
+
+a {
+    display: block;
+}
