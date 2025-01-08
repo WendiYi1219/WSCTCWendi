@@ -1,18 +1,90 @@
-/* styles.css */
+/* 全局样式 */
 body {
     font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* 让内容垂直居中 */
+    margin: 0; /* 移除默认边距 */
+    text-align: center; /* 居中文本 */
 }
 
-p.hello {
-    font-size: 30px;
-    color: orange;
+/* 容器样式 */
+.container {
+    display: flex;
+    flex-direction: column; /* 将内容排列为上下结构 */
+    align-items: center; /* 居中对齐 */
+    justify-content: center;
+    position: relative; /* 允许内部绝对定位的元素 */
+    margin-bottom: 50px; /* 与下方内容间距 */
+    height: 150px; /* 设置容器高度，便于图片运动 */
+    overflow: visible; /* 确保动画不会被容器裁切 */
 }
 
-p.illu {
-    font-size: 30px;
-    color: rgb(250, 90, 210);
+/* 图片样式：重叠在文字上方 */
+img.magnify {
+    width: 300px; /* 图片宽度 */
+    height: auto; /* 高度根据宽度自动调整 */
+    position: absolute; /* 绝对定位，使其在容器中移动 */
+    animation: moveMagnify 3s infinite; /* 图片的动画 */
+    z-index: 2; /* 确保图片位于文字的上方 */
+}
+
+/* Who is Wendi Yi? 的文字样式 */
+p.who {
+    font-size: 50px; /* 放大文字 */
+    color: orange; /* 设置文字颜色 */
+    margin: 0; /* 移除默认的上下边距 */
+    text-shadow: 2px 2px 5px #aaa, -2px -2px 5px #555; /* 添加阴影效果 */
+    animation: moveText 3s infinite; /* 文字的动画 */
+    position: relative; /* 设置相对定位 */
+    z-index: 1; /* 确保文字在图片下方 */
+}
+
+/* 图片的动画效果 */
+@keyframes moveMagnify {
+    0% {
+        transform: translateY(0) translateX(-50px); /* 初始位置 */
+    }
+    25% {
+        transform: translateY(-30px) translateX(0); /* 向左上移动 */
+    }
+    50% {
+        transform: translateY(50%) translateX(70px); /* 向右下移动 */
+    }
+    75% {
+        transform: translateY(-10px) translateX(-30px); /* 向左上移动 */
+    }
+    100% {
+        transform: translateY(0) translateX(0); /* 回到初始位置 */
+    }
+}
+
+/* 其他全局样式 */
+img {
+    display: block; /* 图片为独占块 */
+    margin: 20px auto; /* 图片居中 */
 }
 
 a {
-    display: block;
+    display: block; /* 每个链接独占一行 */
+    transform: rotate(-10deg); /* 设置倾斜角度 */
+    margin-bottom: 20px; /* 链接之间的间距 */
+    font-size: 20px; /* 调整字体大小 */
+    text-decoration: none; /* 去掉下划线 */
+    color: #3498db; /* 链接颜色 */
+}
+
+/* 定义文字动画 */
+@keyframes moveText {
+    0% {
+        transform: translateX(0); /* 初始位置 */
+    }
+    50% {
+        transform: translateX(100px); /* 向右移动 100px */
+    }
+    100% {
+        transform: translateX(0); /* 回到初始位置 */
+    }
 }
